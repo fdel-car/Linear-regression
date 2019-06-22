@@ -2,7 +2,12 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data.csv')
+try:
+	data = pd.read_csv('data.csv')
+except IOError:
+	print "Data file not found."
+	exit(1)
+
 assert(len(data.columns) == 2)
 X = data.iloc[:, 0]
 
